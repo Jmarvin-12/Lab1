@@ -1,0 +1,142 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    var Vehicles = ViewBag.Vehicles;
+}
+
+<div id="vehiculo" class="container contain text-center" style="display:block; margin:auto">
+    <form asp-action="CreateVehicle" method="post">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div>
+                    <h1 class="titulito">Crear Vehículo</h1>
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <br />
+        <div class="row text-center" style="margin:-5px -5px">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <label class="label-control">Ingrese marca de vehiculo</label>
+                <input class="form-control" type="text" name="marca" />
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <br />
+        <div class="row text-center" style="margin:-5px -5px">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <label class="label-control">Ingrese el año</label>
+                <input class="form-control" type="text" name="year" />
+            </div>
+            <div class="col-4">
+                @ViewBag.Vehistr
+                        @ViewBag.VehinullError
+                    </div>
+        </div>
+        <br />
+        <div class="row text-center" style="margin:-5px -5px">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <label class="label-control">Ingrese color</label>
+                <input class="form-control" type="text" name="color" />
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <br />
+
+        <div class="row text-center" style="margin:-5px -5px">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <label class="label-control">Ingrese el numero de llantas</label>
+                <input class="form-control" type="text" name="llantas" />
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <br />
+        <div class="row text-center" style="margin:-5px -5px">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <p class="label-control">
+                    Seleccione la categoria
+                    <div>
+                        <label><input class="form-control" type="checkbox" value="true" name="categoria" />Sedan</label>
+                        <label><input class="form-control" type="checkbox" value="false" name="categoria" />Pickup</label>
+                    </div>
+                </p>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4 text-center">
+                <input class="btn btn-info" type="submit" value="Crear vehículo" />
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </form>
+</div>
+@ViewBag.VehiError
+<br />
+<br />
+<div id="showVehicles" style="display:block">
+    @if (Vehicles != null)
+    {
+    <div class="row text-center" style="background-color:#0c2897; border:1px solid black; border-radius: 10px 10px;">
+        <div class="col">
+            <h4>ID: </h4>
+        </div>
+        <div class="col">
+            <h4>Marca: </h4>
+        </div>
+        <div class="col">
+            <h4>Año: </h4>
+        </div>
+        <div class="col">
+            <h4>Color: </h4>
+        </div>
+        <div class="col">
+            <h4>llantas: </h4>
+        </div>
+        <div class="col">
+            <h4>Categoria: </h4>
+        </div>
+        <div class="col">
+            <h4>Fecha de ingreso: </h4>
+        </div>
+    </div>
+
+        @foreach (var a in Vehicles)
+        {
+            <div class="row text-center" style="border: 1px solid black; border-radius: 10px 10px;">
+                <div class="col" style="background-color:dimgray; border: 0.5px solid; ">
+                    <label>@a.Id</label>
+                </div>
+                <div class="col" style="background-color: dimgray; border: 0.5px solid; ">
+                    <label>@a.Marca</label>
+                </div>
+                <div class="col" style="background-color: dimgray; border: 0.5px solid; ">
+                    <label>@a.year</label>
+                </div>
+                <div class="col" style="background-color: dimgray; border: 0.5px solid; ">
+                    <label>@a.color</label>
+                </div>
+                <div class="col" style="background-color: dimgray; border: 0.5px solid; ">
+                    <label>@a.llantas</label>
+                </div>
+                <div class="col" style="background-color: dimgray; border: 0.5px solid; ">
+                    <label>@a.category</label>
+                </div>
+                <div class="col" style="background-color: dimgray; border: 0.5px solid; ">
+                    <label>@a.EntryDate</label>
+                </div>
+            </div>
+        }
+
+    }
+</div>

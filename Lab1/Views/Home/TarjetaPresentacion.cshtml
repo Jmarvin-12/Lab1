@@ -1,0 +1,119 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div id="datosTarjeta" style="background-color:gray">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="header-op">
+                <h1 class="titulito text-center">Presentación de computadoras</h1>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <br />
+    <h5 class="text-center font-weight-bold">Ingrese los datos de la computadora</h5>
+    <div class="row text-center">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <label class="label-control">Marca</label>
+            <input id="marca" required class="form-control" type="text" />
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <br />
+    <div class="row text-center">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <label class="label-control">Procesador</label>
+            <input id="procesador" class="form-control" type="text" />
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <br />
+    <div class="row text-center">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <label class="label-control">Memoria Ram</label>
+            <input id="memoria" class="form-control" type="number" />
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <br />
+    <div class="row text-center">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <label class="label-control">Disco duro</label>
+            <input id="discoduro" class="form-control" type="text" />
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 text-center">
+            <button class="btn btn-primary" onclick="showFeatures()">Crear tarjeta</button>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    
+</div>
+
+<br /><br />
+
+<div id="ShowTarjeta" class="row" style="display: none">
+    <div class="col-12">
+        <div class="card text-center shadow">
+            <div style="background-color:darkblue" class="card-header">
+                <h1 id="titleProduct" class="font-weight-bold font-italic tit"></h1>
+            </div>
+            <div  id="cardbody" class="card-body">
+                <h5 style="border:1px solid black"  class="card-title">Marca</h5>
+                <label id="mostrarmarca"></label>
+                <h5 style="border:1px solid black" class="card-title">Procesador</h5>
+                <label id="mostrarprocesador"></label>
+                <h5 style="border:1px solid black" class="card-title">Memoria</h5>
+                <label id="mostrarmemoria"></label>
+                <h5 style="border:1px solid black" class="card-title">Disco</h5>
+                <label id="mostrardisco"></label>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    var marca = document.querySelector("#marca");
+    var procesador = document.querySelector("#procesador");
+    var memoria = document.querySelector("#memoria");
+    var disco = document.querySelector("#discoduro");
+
+    var mostrarmarca = document.getElementById("mostrarmarca");
+    var mostrarprocesador = document.getElementById("mostrarprocesador");
+    var mostrarmemoria = document.getElementById("mostrarmemoria");
+    var mostrardisco = document.getElementById("mostrardisco");
+
+    var titleProduct = document.getElementById("titleProduct");
+
+    var conTarjeta = document.getElementById("ShowTarjeta");
+
+    function showFeatures() {
+
+        conTarjeta.style.display = "block";
+
+        titleProduct.innerHTML = "Caracteristicas de computadora " + marca.value;
+
+        mostrarmarca.innerHTML = marca.value;
+        mostrarprocesador.innerHTML = procesador.value;
+        mostrarmemoria.innerHTML = memoria.value;
+        mostrardisco.innerHTML = disco.value;
+
+    }
+
+
+</script>
