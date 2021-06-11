@@ -89,25 +89,19 @@ namespace Lab1.Controllers
 
             try
             {
-                int anio = Convert.ToInt32(year);
-                int tires = Convert.ToInt32(llantas);
 
-               op.CreateVehicle(marca, anio, color, tires, categoria);
+               op.CreateVehicle(marca, year, color, llantas, categoria);
 
                 ViewBag.Vehicles = op.VehiclesList();
 
-            }
-            catch(NullReferenceException ex)
-            {
-                ViewBag.VehinullError = "Ingrese todos los datos "+ ex.Message;
             }
             catch (FormatException ex)
             {
                 ViewBag.Vehistr = "Debe de ingresar solamente numeros, error causado: " +ex.Message;
             }
-            catch (ArithmeticException ex)
+            catch (Exception ex)
             {
-                ViewBag.VehiError = ex.Message;
+                ViewBag.VehinullError = "Ingresar todos los datos es obligatorio";
             }
 
 

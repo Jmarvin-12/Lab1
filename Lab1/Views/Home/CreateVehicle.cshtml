@@ -34,8 +34,7 @@
                 <input class="form-control" type="text" name="year" />
             </div>
             <div class="col-4">
-                @ViewBag.Vehistr
-                        @ViewBag.VehinullError
+                
                     </div>
         </div>
         <br />
@@ -45,7 +44,11 @@
                 <label class="label-control">Ingrese color</label>
                 <input class="form-control" type="text" name="color" />
             </div>
-            <div class="col-4"></div>
+            <div class="col-4">
+                @ViewBag.Vehistr
+                        @ViewBag.VehinullError
+                        @ViewBag.VehiError
+                    </div>
         </div>
         <br />
 
@@ -77,11 +80,13 @@
             <div class="col-4 text-center">
                 <input class="btn btn-info" type="submit" value="Crear vehículo" />
             </div>
-            <div class="col-4"></div>
+            <div class="col-4">
+                
+            </div>
         </div>
     </form>
 </div>
-@ViewBag.VehiError
+
 <br />
 <br />
 <div id="showVehicles" style="display:block">

@@ -68,34 +68,28 @@ namespace Lab1.Logic
             return operationsList;
         }
 
-        public List<Vehicle> CreateVehicle(string Marca, int year, string color, int llantas, bool categoria)
+        public List<Vehicle> CreateVehicle(string Marca, string year, string color, string llantas, bool categoria)
         {
             
-            try
-            {
-                string category;
-                if(categoria)
+
+                int anio = Convert.ToInt32(year);
+                int tires = Convert.ToInt32(llantas);
+
+                if(anio == 0 || tires == 0)
                 {
-                    category = "Sedan";
-                }
-                else
-                {
-                    category = "Pickup";
+                    throw new Exception();
                 }
 
-                vehicleList.Add(new Vehicle(Marca, year, color, llantas, category));
-            }
-            catch (NullReferenceException)
-            {
-                throw;
-            }
-            catch (ArgumentNullException)
-            {
-                throw new ArgumentNullException();
-            }
-            catch (ArithmeticException) {
-                throw new ArithmeticException();
-            }
+                if(Marca == null || color == null)
+                {
+                    
+                    throw new Exception();
+                }
+
+                string category = categoria != true ? "Pickup" : "Sedan";
+
+                vehicleList.Add(new Vehicle(Marca, anio, color, tires, category));
+            
 
 
             return vehicleList;
